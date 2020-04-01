@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 public class Starter implements CommandLineRunner {
 
     // Dzięki adnotacji autowired możemy do komponentów springowych wstrzykiwać inne komponenty springowe
+    // Wstrzykiwanie zależności za pomocą Reflection API
     @Autowired
     Castle castle;
 
@@ -19,16 +20,6 @@ public class Starter implements CommandLineRunner {
 
         System.out.println(castle);
 
-    //  Dependency injection - przekazywanie przez konstruktor
-        Quest saveThePincess = new Quest("Uratuj księżniczkę");
-        Knight lancelot = new Knight("Lancelot", 29, saveThePincess);
 
-        //  Dependency injection - przekazywanie przez metodę
-        Quest killTheDragon = new Quest("Zabij smoka");
-        Knight percival = new Knight("Percival", 31);
-        percival.setQuest(killTheDragon);
-
-        System.out.println(lancelot);
-        System.out.println(percival);
     }
 }
